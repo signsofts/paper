@@ -25,13 +25,13 @@
     <div class="shopify-grid">
         <div class="container py-5 my-5">
             <div class="row flex-md-row-reverse g-md-5 mb-5">
-            <aside class="col-md-3 mt-5">
+                <aside class="col-md-3 mt-5">
                     <div class="sidebar">
                         <div class="widget-menu">
                             <div class="widget-search-bar">
                                 <div class="search-bar border rounded-2 border-dark-subtle pe-3">
-                                    <form id="search-form" class="text-center d-flex align-items-center" action="./index.php" method="get">
-                                        <input type="text" class="form-control border-0 bg-transparent" name="s" placeholder="ค้นหาสินค้า" onchange="onchangeKey(this)" value="<?php echo isset($_GET[" s"]) ? $_GET["s"] : "" ?>">
+                                    <form id="search-form" class="text-center d-flex align-items-center" action="./shop.php" method="get">
+                                        <input type="text" class="form-control border-0 bg-transparent" id="ssname" name="name" placeholder="ค้นหาสินค้า" onchange="onchangeKey(this)" value="<?php echo isset($_GET["name"]) ? $_GET["name"] : "" ?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                             <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z">
                                             </path>
@@ -41,7 +41,7 @@
                                     <script>
                                         const onchangeKey = (ev) => {
                                             // document.getElementById('search-form').submit();
-                                            search_name(ev.value)
+                                            search_name("ssname")
                                             // search_type(ev.value)
                                         }
                                         document.addEventListener("keydown", function(event) {
@@ -167,8 +167,8 @@
                         ?>
                             <div class="col-12 col-sm-6 col-md-4 my-4">
                                 <div class="card position-relative">
-                                    <a href="single-product.php">
-                                        <img src="../img/pro/<?php echo $row->image_pro ?>" class="img-fluid rounded-5" alt="image" style="width: 100%; height: 200px; "   >
+                                    <a href="javascript:;">
+                                        <img src="../img/pro/<?php echo $row->image_pro ?>" class="img-fluid rounded-5" alt="image" style="width: 100%; height: 200px; ">
                                     </a>
                                     <div class="card-body p-2 pt-3">
                                         <div class="card-text">
@@ -273,7 +273,7 @@
 
 
                 </main>
-                
+
             </div>
         </div>
     </div>

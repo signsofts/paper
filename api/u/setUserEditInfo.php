@@ -5,16 +5,13 @@ $data = (object) json_decode(file_get_contents('php://input'));
 header('Content-Type: application/json; charset=utf-8');
 $data =  $_POST;
 
-if (empty(Database::squery("SELECT * FROM `paper_user` WHERE US_EMAIL = '{$_POST['US_EMAIL']}' AND `US_ID` != '{$_POST['US_ID']}'"))) {
+if (empty(Database::squery("SELECT * FROM `paper_ad_account` WHERE AD_EMAIL = '{$_POST['AD_EMAIL']}' AND `AD_ID` != '{$_POST['AD_ID']}'"))) {
     echo json_encode(false);
     exit;
 }
 
-
-
-echo json_encode(Database::query("UPDATE `paper_user` SET `US_FNAME` = '{$_POST['US_FNAME']}', 
-                                                            `US_LNAME` = '{$_POST['US_LNAME']}', 
-                                                            `US_EMAIL` = '{$_POST['US_EMAIL']}',
-                                                            `US_PASSWORD` = '{$_POST['US_PASSWORD']}',
-                                                            `US_PHONE` = '{$_POST['US_PHONE']}'
-                                                             WHERE `paper_user`.`US_ID` = '{$_POST['US_ID']}';"));
+echo json_encode(Database::query("UPDATE `paper_ad_account` SET `AD_FNAME_TH` = '{$_POST['AD_FNAME_TH']}', 
+                                                            `AD_LNAME_TH` = '{$_POST['AD_LNAME_TH']}', 
+                                                            `AD_EMAIL` = '{$_POST['AD_EMAIL']}',
+                                                            `AD_PASSWORD` = '{$_POST['AD_PASSWORD']}'
+                                                             WHERE `paper_user`.`AD_ID` = '{$_POST['AD_ID']}';"));

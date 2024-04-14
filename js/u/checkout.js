@@ -12,7 +12,15 @@ document.getElementById("checout").addEventListener("submit", (e) => {
         method: "post",
         body: form,
     }).then(e => e.json()).then(resp => {
-        console.log(resp)
+        if (resp.error == false) {
+            alert("สั่งซื้อสินค้าสำเร็จ");
+            // localStorage.setItem('product', JSON.stringify([]))
+            localStorage.clear('product');
+
+            location.assign("./index.php");
+        } else {
+            alert(resp.error);
+        }
     })
-    
+
 });

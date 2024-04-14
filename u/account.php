@@ -204,7 +204,7 @@
                         <tbody>
                             <?php
 
-                            $sql_data = "SELECT * FROM `transale` WHERE US_ID = '{$rwRco->US_ID}'";
+                            $sql_data = "SELECT * FROM `transale` WHERE US_ID = '{$rwRco->US_ID}' ORDER BY id_transale DESC ";
                             $result_data = Database::query($sql_data, PDO::FETCH_ASSOC); ?>
                             <?php foreach ($result_data as $k => $row) :
                                 $row = (object) $row;
@@ -221,7 +221,7 @@
                                                 $stat = "<span class='badge rounded-pill text-bg-primary'>รอยืนยัน</span>";
                                                 break;
                                             case '2':
-                                                $stat = "<span class='badge rounded-pill text-bg-info'>ยืนยันการจัดส่ง</span>";
+                                                $stat = "<span class='badge rounded-pill text-bg-info'>ยืนยันคำสั่งซื้อ</span>";
                                                 break;
                                             case '3':
                                                 $stat = "<span class='badge rounded-pill text-bg-warning'>กำลังจัดส่ง</span>";
@@ -246,7 +246,7 @@
                                                 $trpost = "<span class='badge rounded-pill text-bg-primary'>ปลายทาง</span>";
                                                 break;
                                             case '1':
-                                                $trpost = "<span class='badge rounded-pill text-bg-info'>โอนชำระ</span>";
+                                                $trpost = "<a href='../img/slip/{$row->tra_slip}' target='_blank' rel='noopener noreferrer'><span class='badge rounded-pill text-bg-info'>โอนชำระ(คลิก)</span></a>";
                                                 break;
                                         }
                                         echo  $trpost;
@@ -268,6 +268,7 @@
 
                         </tbody>
                     </table>
+
                     <?php
 
                     $sql_data = "SELECT * FROM `transale` WHERE US_ID = '{$rwRco->US_ID}'";
@@ -321,6 +322,9 @@
                                         <?php if ($row->status_transale == '1') : ?>
                                             <button type="button" onclick="cancelTransale('<?php echo $row->id_transale; ?>')" class="btn btn-danger">ยกเลิกคำสั่งซื้อ</button>
                                         <?php endif; ?>
+                                        <?php if ($row->status_transale == '3') : ?>
+                                            <button type="button" onclick="cSuccessTransale('<?php echo $row->id_transale; ?>')" class="btn btn-outline-success">ยืนยันรับสินค้า</button>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -344,6 +348,24 @@
     <script>
         function cancelTransale(id_transale) {
             fetch("../api/u/cancelTransale.php", {
+                method: "post",
+                body: JSON.stringify({
+                    id_transale: id_transale
+                }),
+            }).then(e => e.json()).then(resp => {
+                if (resp) {
+                    alert("บันทึกข้อมูลสำเร็จ")
+                    location.reload();
+
+                    return;
+                }
+                alert("บันทึกข้อมูลไม่สำเร็จ")
+                location.reload();
+            })
+        }
+
+        function cSuccessTransale(id_transale) {
+            fetch("../api/u/cSuccessTransale.php", {
                 method: "post",
                 body: JSON.stringify({
                     id_transale: id_transale
@@ -465,6 +487,8 @@
 
             })
         });
+
+        new DataTable('table');
     </script>
 </body>
 

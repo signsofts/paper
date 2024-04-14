@@ -1,5 +1,25 @@
 const queryString = window.location.search;
 
+$.extend(true, $.fn.dataTable.defaults, {
+    "language": {
+        "sProcessing": "กำลังดำเนินการ...",
+        "sLengthMenu": "แสดง_MENU_ แถว",
+        "sZeroRecords": "ไม่พบข้อมูล",
+        "sInfo": "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",
+        "sInfoEmpty": "แสดง 0 ถึง 0 จาก 0 แถว",
+        "sInfoFiltered": "(กรองข้อมูล _MAX_ ทุกแถว)",
+        "sInfoPostFix": "",
+        "sSearch": "ค้นหา:",
+        "sUrl": "",
+        "oPaginate": {
+            "sFirst": " << ",
+            "sPrevious": " < ",
+            "sNext": " > ",
+            "sLast": " >> "
+        }
+    }
+});
+
 function search_type(object) {
     if (queryString.includes("?")) {
         location.assign(window.location.href + "&type=" + object);
@@ -78,6 +98,16 @@ function addCartProduct(id_products, name_products, price_unit, item, image_pro)
         temp.push(product);
 
         localStorage.setItem('product', JSON.stringify(temp))
+        updateCart();
+
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "เพิ่มสินค้าสำเร็จ",
+            showConfirmButton: false,
+            timer: 1000
+        });
+        return;
     }
 
     let rco = JSON.parse(localStorage.getItem('product'));

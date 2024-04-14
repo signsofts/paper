@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php include ("./head.php") ?>
+    <?php include("./head.php") ?>
 </head>
 
 
@@ -10,10 +10,10 @@
 
 <body class="">
 
-    <?php include ("./header.php") ?>
+    <?php include("./header.php") ?>
 
     <script>
-        
+
     </script>
 
     <section id="banner" class="py-3" style="background: #F9F3EC;">
@@ -36,8 +36,7 @@
                 <main class="col-md-9">
                     <div class="filter-shop d-md-flex justify-content-between align-items-center">
                         <div class="showing-product">
-                            <select id="select_limit" name="select_limit" class="form-control p-3"
-                                style="padding-right : 1.25rem" onChange="select_sort_by(this);">
+                            <select id="select_limit" name="select_limit" class="form-control p-3" style="padding-right : 1.25rem" onChange="select_sort_by(this);">
                                 <option value="&amp;limit=10" <?php echo isset($_GET["limit"]) && $_GET["limit"] == 10 ? 'selected="selected "' : " " ?>>10</option>
                                 <option value="&amp;limit=25" <?php echo isset($_GET["limit"]) && $_GET["limit"] == 25 ? 'selected="selected "' : " " ?>>25</option>
                                 <option value="&amp;limit=50" <?php echo isset($_GET["limit"]) && $_GET["limit"] == 50 ? 'selected="selected "' : " " ?>>50</option>
@@ -56,8 +55,7 @@
                                 </option>
                             </select>
                         </div>
-                        <button id="btn_reset" type="button" class="btn btn-sm btn-dark p-1   "
-                            onclick="location.assign('<?php echo $_SERVER['PHP_SELF'] ?>');">คืนค่าเริ่มต้น</button>
+                        <button id="btn_reset" type="button" class="btn btn-sm btn-dark p-1   " onclick="location.assign('<?php echo $_SERVER['PHP_SELF'] ?>');">คืนค่าเริ่มต้น</button>
 
                     </div>
 
@@ -65,7 +63,7 @@
                         <?php
                         $page = null;
                         $start = 0; // ค่าของ record โดย page1 $startต้อง=0, page2 $startต้อง=3,page3 $startต้อง=6
-                        
+
                         $pagesize = isset($_GET['limit']) ? $_GET['limit'] : 10; //จำนวน record ที่ต้องการแสดงในหนึ่งหน้า
                         $sort = isset($_GET['sort']) ? $_GET['sort'] : 'name_products';
                         $order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
@@ -84,7 +82,7 @@
                                                 AND name_products LIKE '%$name%'  
                                                 AND id_products NOT IN (SELECT id_products FROM products WHERE status_products = 0 )   
                                     ORDER BY pro.$sort  $order LIMIT $start,$pagesize"; //คำสั่งแสดง record ต่อหนึ่งหน้า $pagesize = ต้องการกี่ record ต่อ
-                        
+
                         $result_count = Database::query($sql_count, PDO::FETCH_ASSOC); //เก็บข้อมูลไว้ใน $result
                         $num_rowsx = $result_count->rowCount(); //ใช้คำสั่ง mysql_num_rows เพื่อหาจำนวน record ทั้งหมด
                         $totalpage = ceil($num_rowsx / $pagesize);
@@ -108,19 +106,18 @@
                         $num_rows = $result_data->rowCount();
                         // try {
                         //     // $sql_data = "SELECT * FROM products WHERE id_typepro LIKE '%$type%' ORDER BY id_products $order LIMIT $start,$pagesize";
-                        
+
                         // } catch (Exception $e) {
                         // }
-                        
+
                         ?>
 
-                        <?php foreach ($result_data as $row):
+                        <?php foreach ($result_data as $row) :
                             $row = (object) $row;
-                            ?>
+                        ?>
                             <div class="col-md-4 my-4">
                                 <div class="card position-relative">
-                                    <a href="javascript:alert('กรุณาเข้าสู่ระบบ');"><img src="img/pro/<?php echo $row->image_pro ?>"
-                                            class="img-fluid rounded-4" alt="image"></a>
+                                    <a href="javascript:alert('กรุณาเข้าสู่ระบบ');"><img src="img/pro/<?php echo $row->image_pro ?>" class="img-fluid rounded-4" alt="image"></a>
                                     <div class="card-body p-2 pt-3">
                                         <div class="card-text">
                                             <!-- <span class="rating secondary-font">
@@ -132,7 +129,7 @@
                                                 5.0</span> -->
                                             <div class=" d-flex justify-content-between ">
                                                 <h5 class="secondary-font text-dark">
-                                                    <?php echo $row->name_products ?> 
+                                                    <?php echo $row->name_products ?>
                                                 </h5>
                                                 <h5 class="secondary-font text-primary">
                                                     <?php echo $row->num_stock ?> ชิ้น
@@ -140,7 +137,7 @@
                                             </div>
                                             <div class=" d-flex justify-content-between ">
                                                 <h5 class="secondary-font text-dark">
-                                                    
+
                                                 </h5>
                                                 <h5 class="secondary-font text-primary">
                                                     <?php echo $row->price_unit ?> บาท/ชิ้น
@@ -148,8 +145,7 @@
                                             </div>
 
                                             <div class="d-flex flex-wrap mt-3">
-                                                <a href="javascript:alert('กรุณาเข้าสู่ระบบ');"
-                                                    class="btn-cart me-3 px-4 pt-3 pb-3">
+                                                <a href="javascript:alert('กรุณาเข้าสู่ระบบ');" class="btn-cart me-3 px-4 pt-3 pb-3">
                                                     <h5 class="text-uppercase m-0">เพิ่มสินค้า</h5>
                                                 </a>
                                             </div>
@@ -163,64 +159,64 @@
                     <!-- <hr> -->
                     <!-- / product-grid -->
 
-                    <?php if ($num_rowsx != 0): ?>
+                    <?php if ($num_rowsx != 0) : ?>
                         <!-- <div class="row"> -->
-                            <!-- <div class="col-md-4 col-sm-4 items-info"> รายการที่
+                        <!-- <div class="col-md-4 col-sm-4 items-info"> รายการที่
                                 <?php echo $num_rowsx == 0 ? 0 : $start + 1; ?> ถึง
                                 <?php echo $start + $pagesize > $num_rowsx ? $num_rowsx : $start + $pagesize; ?> of
                                 <?php echo $num_rowsx ?> รายการ
                             </div> -->
 
 
-                            <nav class="navigation paging-navigation text-center mt-5" role="navigation">
-                                
-                                <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
-                                    <?php
-                                    if ($page > 1) //ถ้า ค่า page มากกว่า 1 แสดงปุ่ม ย้อนกลับ Previuos
-                                    {
-                                        $pg = $page - 1;
+                        <nav class="navigation paging-navigation text-center mt-5" role="navigation">
 
-                                        echo "
+                            <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
+                                <?php
+                                if ($page > 1) //ถ้า ค่า page มากกว่า 1 แสดงปุ่ม ย้อนกลับ Previuos
+                                {
+                                    $pg = $page - 1;
+
+                                    echo "
                                         <a href='javascript:new_page($pg);' class='pagination-arrow d-flex align-items-center mx-3'>
                                             <iconify-icon icon='ic:baseline-keyboard-arrow-left'
                                                 class='pagination-arrow fs-1'></iconify-icon>
                                         </a>
                                     ";
+                                }
+                                ?>
+
+                                <?php
+
+                                for ($i = 1; $i <= $totalpage; $i++) :
+
+                                    if (isset($_GET['page']) && $_GET['page'] == $i) {
+                                        echo "<span aria-current='page' class='page-numbers mt-2 fs-3 mx-3 current'>$i</span>";
+                                    } else if (!isset($_GET['page']) && $i == 1) {
+                                        echo "<span aria-current='page' class='page-numbers mt-2 fs-3 mx-3 current'>1</span>";
+                                    } else {
+                                        echo "<a class='page-numbers mt-2 fs-3 mx-3' href='javascript:new_page($i);'>$i</a>";
                                     }
-                                    ?>
+                                // $page++;
+                                endfor;
 
-                                    <?php
-
-                                    for ($i = 1; $i <= $totalpage; $i++):
-
-                                        if (isset($_GET['page']) && $_GET['page'] == $i) {
-                                            echo "<span aria-current='page' class='page-numbers mt-2 fs-3 mx-3 current'>$i</span>";
-                                        } else if (!isset($_GET['page']) && $i == 1) {
-                                            echo "<span aria-current='page' class='page-numbers mt-2 fs-3 mx-3 current'>1</span>";
-                                        } else {
-                                            echo "<a class='page-numbers mt-2 fs-3 mx-3' href='javascript:new_page($i);'>$i</a>";
-                                        }
-                                        // $page++;
-                                    endfor;
-
-                                    //next
-                                    if ($page < $totalpage && $page != 0) //ถ้า ค่า page น้อยกว่า page ทั้งหมด(page ท้ายสุด) แสดงปุ่ม  Next
-                                    {
-                                        $pg = $page + 1;
-                                        //echo "<a href='news.php?page=$pg'>Previuos</a>"; //ส่งค่า page ที่ลดลง 1 เมื่อกดปุ่ม next
-                                        echo "
+                                //next
+                                if ($page < $totalpage && $page != 0) //ถ้า ค่า page น้อยกว่า page ทั้งหมด(page ท้ายสุด) แสดงปุ่ม  Next
+                                {
+                                    $pg = $page + 1;
+                                    //echo "<a href='news.php?page=$pg'>Previuos</a>"; //ส่งค่า page ที่ลดลง 1 เมื่อกดปุ่ม next
+                                    echo "
                                         <a href='javascript:new_page($pg);' class='pagination-arrow d-flex align-items-center mx-3'>
                                             <iconify-icon icon='ic:baseline-keyboard-arrow-right'
                                                 class='pagination-arrow fs-1'></iconify-icon>
                                         </a>";
-                                    }
+                                }
 
-                                    ?>
-                                </div>
-                            </nav>
+                                ?>
+                            </div>
+                        </nav>
 
                         <!-- </div> -->
-                    <?php else: ?>
+                    <?php else : ?>
                         <div class="row">
                             ไม่พบรายการที่ค้นหา
                         </div>
@@ -234,15 +230,10 @@
                         <div class="widget-menu">
                             <div class="widget-search-bar">
                                 <div class="search-bar border rounded-2 border-dark-subtle pe-3">
-                                    <form id="search-form" class="text-center d-flex align-items-center"
-                                        action="./index.php" method="get">
-                                        <input type="text" class="form-control border-0 bg-transparent" name="s"
-                                            placeholder="ค้นหาสินค้า" onchange="onchangeKey(this)"
-                                            value="<?php echo isset($_GET["s"]) ? $_GET["s"] : "" ?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z">
+                                    <form id="search-form" class="text-center d-flex align-items-center" action="./index.php" method="get">
+                                        <input type="text" class="form-control border-0 bg-transparent" id="sInput" name="name" placeholder="ค้นหาสินค้า" onchange="onchangeKey(this)" value="<?php echo isset($_GET["name"]) ? $_GET["name"] : "" ?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z">
                                             </path>
                                         </svg>
                                     </form>
@@ -250,10 +241,10 @@
                                     <script>
                                         const onchangeKey = (ev) => {
                                             // document.getElementById('search-form').submit();
-                                            search_name(ev.value)
+                                            search_name('sInput')
                                             // search_type(ev.value)
                                         }
-                                        document.addEventListener("keydown", function (event) {
+                                        document.addEventListener("keydown", function(event) {
                                             if (event.key === "Enter") {
                                                 document.getElementById('search-form').submit();
                                             }
@@ -264,18 +255,16 @@
                         </div>
                         <div class="widget-product-categories pt-5">
                             <h4 class="widget-title">ประเภท</h4>
-                            <ul class="product-categories sidebar-list list-unstyled  pl-3"
-                                style="    margin-left: 15px;">
+                            <ul class="product-categories sidebar-list list-unstyled  pl-3" style="    margin-left: 15px;">
                                 <li class="cat-item ml-4">
                                     <a href="javascript:search_type('')"> &nbsp;&nbsp; ทั้งหมด</a>
                                 </li>
 
                                 <?php
                                 $sql = "SELECT * FROM `typepro` WHERE TY_STATUS IS NULL ";
-                                foreach (Database::squery($sql, PDO::FETCH_OBJ, true) as $key => $item): ?>
+                                foreach (Database::squery($sql, PDO::FETCH_OBJ, true) as $key => $item) : ?>
                                     <li class="cat-item ">
-                                        <a href="javascript:search_type('<?php echo $item->id_typepro ?>')"
-                                            class="nav-link"> &nbsp;&nbsp;
+                                        <a href="javascript:search_type('<?php echo $item->id_typepro ?>')" class="nav-link"> &nbsp;&nbsp;
                                             <?php echo $item->name_typepro ?>
                                         </a>
                                     </li>
@@ -292,8 +281,64 @@
     </div>
 
 
-    <?php include ("./footer.php") ?>
-    
+    <script>
+        const queryString = window.location.search;
+    </script>
+    <?php include("./footer.php") ?>
+    <script>
+        function search_type(object) {
+            if (queryString.includes("?")) {
+                location.assign(window.location.href + "&type=" + object);
+            } else {
+                location.assign(window.location.href + "?type=" + object);
+            }
+        }
+
+        function search_name(object) {
+            var name = $("#" + object).val();
+
+            if (queryString.includes("?")) {
+                location.assign(window.location.href + "&name=" + name);
+            } else {
+                location.assign(window.location.href + "?name=" + name);
+            }
+        }
+
+        // function select_provinces(object) {
+        //     var name = $("#" + object).val();
+        //     if (queryString.includes("?")) {
+        //         location.assign(window.location.href + "&provinces=" + name);
+        //     } else {
+        //         location.assign(window.location.href + "?provinces=" + name);
+        //     }
+        // }
+
+        function select_sort_by(object) {
+            var count = 0;
+            if (queryString.includes("?")) {
+                location.assign(window.location.href + object.value);
+            } else {
+                location.assign(window.location.href + "?" + object.value);
+            }
+        }
+
+        function select_limit(object) {
+            if (queryString.includes("?")) {
+                location.assign(window.location.href + object.value);
+            } else {
+                location.assign(window.location.href + "?" + object.value);
+            }
+        }
+
+        function new_page(object) {
+            if (queryString.includes("?")) {
+                location.assign(window.location.href + "&page=" + object);
+            } else {
+                location.assign(window.location.href + "?page=" + object);
+            }
+        }
+    </script>
+
 
 </body>
 

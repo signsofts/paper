@@ -44,4 +44,6 @@
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="../assets/lib/wow/wow.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
+ 
+<script src="https://cdn.datatables.net/v/ju/jqc-1.12.4/dt-2.0.3/datatables.min.js"></script>
 <script src="../js/u/script.js?v=<?php echo time() ?>"></script>

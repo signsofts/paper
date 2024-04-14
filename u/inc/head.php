@@ -74,6 +74,8 @@ if (empty($uAuccotu)) {
     rel="stylesheet"> -->
 
 <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/v/ju/jqc-1.12.4/dt-2.0.3/datatables.min.css" rel="stylesheet">
+
 <style>
     * {
         font-family: 'KhaoNiawThin' !important;

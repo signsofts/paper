@@ -1,6 +1,6 @@
 <?php
 // include_once('config.inc.php');
-include ('config.inc.php');
+include('config.inc.php');
 // require_once('./config.inc.php');
 
 class Database
@@ -36,14 +36,14 @@ class Database
         } else {
             return self::query($sql, $opt);
         }
-
     }
 
+    // public static function queryMaxID($table, $id)
+    // {
+    //     try {
+    //         return self::query("SELECT MAX($id) AS MAXS FROM `$table`;", PDO::FETCH_OBJ);
+    //     } catch (Exception $e) {
+    //         return 0;
+    //     }
+    // }
 }
-
-
-
-
-
-
-?>
