@@ -293,7 +293,7 @@
                                                         <tr class="table-info">
                                                             <th scope="col" class="text-uppercase">ชื่อสินค้า</th>
                                                             <th scope="col" class="text-uppercase">จำนวน</th>
-                                                            <th scope="col" class="text-uppercase">ราคา/ชิ้น</th>
+                                                            <th scope="col" class="text-uppercase">ราคา/ลัง</th>
                                                             <th scope="col" class="text-uppercase">ราคารวม</th>
                                                         </tr>
                                                     </thead>

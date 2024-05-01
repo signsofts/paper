@@ -181,7 +181,7 @@
                                                         <tr class="table-info">
                                                             <th scope="col" class="text-uppercase">ชื่อสินค้า</th>
                                                             <th scope="col" class="text-uppercase">จำนวน</th>
-                                                            <th scope="col" class="text-uppercase">ราคา/ชิ้น</th>
+                                                            <th scope="col" class="text-uppercase">ราคา/ลัง</th>
                                                             <th scope="col" class="text-uppercase">ราคารวม</th>
                                                         </tr>
                                                     </thead>
@@ -201,6 +201,10 @@
                                                         <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                            <div class="col-12">
+                                                <h4>แบบที่ลูกค้าจะพิมพ์</h4>
+                                                <img src="./../img/modal/<?php echo $row->tra_modal_type ?>" width="50%" height="200px" alt="" srcset="">
                                             </div>
                                         </div>
 
@@ -346,7 +350,7 @@
                                                         <tr class="table-info">
                                                             <th scope="col" class="text-uppercase">ชื่อสินค้า</th>
                                                             <th scope="col" class="text-uppercase">จำนวน</th>
-                                                            <th scope="col" class="text-uppercase">ราคา/ชิ้น</th>
+                                                            <th scope="col" class="text-uppercase">ราคา/ลัง</th>
                                                             <th scope="col" class="text-uppercase">ราคารวม</th>
                                                         </tr>
                                                     </thead>
@@ -366,6 +370,10 @@
                                                         <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                            <div class="col-12">
+                                                <h4>แบบที่ลูกค้าจะพิมพ์</h4>
+                                                <img src="./../img/modal/<?php echo $row->tra_modal_type ?>" width="50%" height="200px" alt="" srcset="">
                                             </div>
                                         </div>
 
@@ -511,7 +519,7 @@
                                                         <tr class="table-info">
                                                             <th scope="col" class="text-uppercase">ชื่อสินค้า</th>
                                                             <th scope="col" class="text-uppercase">จำนวน</th>
-                                                            <th scope="col" class="text-uppercase">ราคา/ชิ้น</th>
+                                                            <th scope="col" class="text-uppercase">ราคา/ลัง</th>
                                                             <th scope="col" class="text-uppercase">ราคารวม</th>
                                                         </tr>
                                                     </thead>
@@ -531,6 +539,11 @@
                                                         <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <h4>แบบที่ลูกค้าจะพิมพ์</h4>
+                                                <img src="./../img/modal/<?php echo $row->tra_modal_type ?>" width="50%" height="200px" alt="" srcset="">
                                             </div>
                                         </div>
 
@@ -673,7 +686,7 @@
                                                         <tr class="table-info">
                                                             <th scope="col" class="text-uppercase">ชื่อสินค้า</th>
                                                             <th scope="col" class="text-uppercase">จำนวน</th>
-                                                            <th scope="col" class="text-uppercase">ราคา/ชิ้น</th>
+                                                            <th scope="col" class="text-uppercase">ราคา/ลัง</th>
                                                             <th scope="col" class="text-uppercase">ราคารวม</th>
                                                         </tr>
                                                     </thead>
@@ -693,6 +706,11 @@
                                                         <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <h4>แบบที่ลูกค้าจะพิมพ์</h4>
+                                                <img src="./../img/modal/<?php echo $row->tra_modal_type ?>" width="50%" height="200px" alt="" srcset="">
                                             </div>
                                         </div>
 
@@ -834,7 +852,7 @@
                                                         <tr class="table-info">
                                                             <th scope="col" class="text-uppercase">ชื่อสินค้า</th>
                                                             <th scope="col" class="text-uppercase">จำนวน</th>
-                                                            <th scope="col" class="text-uppercase">ราคา/ชิ้น</th>
+                                                            <th scope="col" class="text-uppercase">ราคา/ลัง</th>
                                                             <th scope="col" class="text-uppercase">ราคารวม</th>
                                                         </tr>
                                                     </thead>
@@ -854,6 +872,11 @@
                                                         <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <h4>แบบที่ลูกค้าจะพิมพ์</h4>
+                                                <img src="./../img/modal/<?php echo $row->tra_modal_type ?>" width="50%" height="200px" alt="" srcset="">
                                             </div>
                                         </div>
 

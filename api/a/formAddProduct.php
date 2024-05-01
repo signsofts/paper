@@ -11,6 +11,9 @@ $id_typepro = $data['id_typepro'];
 $name_products = $data['name_products'];
 $price_unit = $data['price_unit'];
 $num_stock = $data['num_stock'];
+$pro_de = $data['pro_de'];
+$pro_max = $data['pro_max'];
+$price_mini = $data['price_mini'];
 
 
 
@@ -34,8 +37,8 @@ if (!empty($image_pro)) {
 
 
 // INSERT INTO `products` (`id_products`, `name_products`, `id_typepro`, `num_stock`, `price_unit`, `status_products`, `image_pro`) VALUES (NULL, 'สินค้า', '3', '12', '546', '1', '3');
-Database::query("INSERT INTO `products` (`id_products`, `name_products`, `id_typepro`, `num_stock`, `price_unit`, `status_products`, `image_pro`) 
-                                        VALUES (NULL, '$name_products', '$id_typepro', '$num_stock', '$price_unit', '1', '$nameImage');");
+Database::query("INSERT INTO `products` (`id_products`, `name_products`, `id_typepro`, `num_stock`, `price_unit`, `status_products`, `image_pro`, `pro_de`, `pro_max`, `price_mini`) 
+                                        VALUES (NULL, '$name_products', '$id_typepro', '$num_stock', '$price_unit', '1', '$nameImage', '$nameImage', '$pro_max', '$price_mini');");
 
 
 echo json_encode(["error" => false]);

@@ -31,7 +31,7 @@
                             <tr>
                                 <th scope="col" class="card-title text-uppercase">สินค้า</th>
                                 <th scope="col" class="card-title text-uppercase">จำนวน</th>
-                                <th scope="col" class="card-title text-uppercase">ราคา/ชิ้น</th>
+                                <th scope="col" class="card-title text-uppercase">ราคา/ลัง</th>
                                 <th scope="col" class="card-title text-uppercase">ราคารวม</th>
                                 <th scope="col" class="card-title text-uppercase"></th>
                             </tr>

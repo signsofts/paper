@@ -132,7 +132,7 @@
                                                     <?php echo $row->name_products ?>
                                                 </h5>
                                                 <h5 class="secondary-font text-primary">
-                                                    <?php echo $row->num_stock ?> ชิ้น
+                                                    <?php echo $row->num_stock ?> ลัง
                                                 </h5>
                                             </div>
                                             <div class=" d-flex justify-content-between ">
@@ -140,7 +140,7 @@
 
                                                 </h5>
                                                 <h5 class="secondary-font text-primary">
-                                                    <?php echo $row->price_unit ?> บาท/ชิ้น
+                                                    <?php echo $row->price_unit ?> บาท/ลัง
                                                 </h5>
                                             </div>
 

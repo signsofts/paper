@@ -181,13 +181,13 @@
                                                     <?php echo $row->name_products ?>
                                                 </h5>
                                                 <h5 class="secondary-font text-primary">
-                                                    <?php echo $row->num_stock ?> ชิ้น
+                                                    <?php echo $row->num_stock ?> ลัง
                                                 </h5>
                                             </div>
                                             <div class=" d-flex justify-content-between ">
 
                                                 <h5 class="secondary-font text-primary">
-                                                    <?php echo $row->price_unit ?> บาท/ชิ้น
+                                                    <?php echo $row->price_unit ?> บาท/ลัง
                                                 </h5>
                                             </div>
                                             <div class="d-flex flex-wrap mt-3">
@@ -319,6 +319,24 @@
                                     <input name="price_unit" type="number" class="form-control" value="0" min="0" step="0.001" placeholder="">
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">จำนวนชิ้นที่อยู่ในลัง</label>
+                                    <input name="pro_max" type="number" class="form-control" value="0" min="0" step="0.001" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">ราคา/ชิ้น(แสดง)</label>
+                                    <input name="price_mini" type="number" class="form-control" value="0" min="0" step="0.001" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">รายละเอียด</label>
+                                    <textarea name="pro_de" id="" " class=" form-control" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
 
                             <div class="col-sm-12">
                                 <div class="mb-3">
@@ -382,6 +400,25 @@
                                     <div class="mb-3">
                                         <label for="" class="form-label">ราคาสินค้า</label>
                                         <input name="price_unit" type="number" class="form-control" value="<?php echo $row->price_unit ?>" min="0" step="0.001" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">จำนวนชิ้นที่อยู่ในลัง</label>
+                                        <input name="pro_max" type="number" class="form-control" value="<?php echo $row->pro_max ?>" min="0" step="0.001" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">ราคา/ชิ้น(แสดง)</label>
+                                        <input name="price_mini" type="number" class="form-control" value="<?php echo $row->price_mini ?>" min="0" step="0.001" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">รายละเอียด</label>
+                                        <textarea name="pro_de" id="" " class=" form-control" cols="30" rows="5"><?php echo $row->pro_de ?></textarea>
                                     </div>
                                 </div>
 

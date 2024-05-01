@@ -167,7 +167,7 @@
                         ?>
                             <div class="col-12 col-sm-6 col-md-4 my-4">
                                 <div class="card position-relative">
-                                    <a href="javascript:;">
+                                    <a href="single-product.php?id_products=<?php echo $row->id_products ?>">
                                         <img src="../img/pro/<?php echo $row->image_pro ?>" class="img-fluid rounded-5" alt="image" style="width: 100%; height: 200px; ">
                                     </a>
                                     <div class="card-body p-2 pt-3">
@@ -177,17 +177,17 @@
                                                     <?php echo $row->name_products ?>
                                                 </h5>
                                                 <h5 class="secondary-font text-primary">
-                                                    <?php echo $row->num_stock ?> ชิ้น
+                                                    <?php echo $row->num_stock ?> ลัง
                                                 </h5>
                                             </div>
                                             <div class=" d-flex justify-content-between ">
 
                                                 <h5 class="secondary-font text-primary">
-                                                    <?php echo $row->price_unit ?> บาท/ชิ้น
+                                                    <?php echo $row->price_unit ?> บาท/ลัง
                                                 </h5>
                                             </div>
                                             <div class=" d-flex justify-content-between ">
-                                                จำนวนชิ้น
+                                                จำนวนลัง
                                                 <input id="input-<?php echo $row->id_products ?>" type="number" class="w-25" value="1" min="1">
                                             </div>
 

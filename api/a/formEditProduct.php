@@ -15,7 +15,9 @@ $name_products = $data['name_products'];
 $price_unit = $data['price_unit'];
 $num_stock = $data['num_stock'];
 // $image_pro = $data['image_pro'];
-
+$pro_de = $data['pro_de'];
+$pro_max = $data['pro_max'];
+$price_mini = $data['price_mini'];
 
 
 $check_products = Database::query("SELECT * FROM `products` WHERE id_products = '$id_products'", PDO::FETCH_OBJ)->fetch(PDO::FETCH_OBJ);
@@ -41,8 +43,9 @@ Database::query("UPDATE `products` SET `name_products` = '$name_products',
                                             `id_typepro` = '$id_typepro', 
                                             `num_stock` = '$num_stock', 
                                             `price_unit` = '$price_unit', 
+                                            `pro_de` = '$pro_de', 
+                                            `pro_max` = '$pro_max', 
+                                            `price_mini` = '$price_mini', 
                                             `image_pro` = '$image_pro' 
                                             WHERE `products`.`id_products` = $id_products;");
-
-
 echo json_encode(["error" => false]);

@@ -73,7 +73,16 @@
                                     </tbody>
                                 </table>
                                 <div class="list-group mt-5 mb-3">
-
+                                    <label class="list-group-item d-flex gap-2 border-0">
+                                        <input type="hidden" id="fileUploadBase641" name="img641" value="">
+                                        <input id="fileUpload1" type="file" required accept=".png,.jpge" name="fileUpload">
+                                        <span>
+                                            <strong class="text-uppercase">แบบที่ลูกค้าจะพิมพ์</strong>
+                                        </span>
+                                    </label>
+                                    <br>
+                                    <br>
+                                    <br>
                                     <label class="list-group-item d-flex gap-2 border-0">
                                         <input class="form-check-input flex-shrink-0" type="radio" required name="type_play" id="type_play2" value="1" onclick="type_playClick(this)">
                                         <span>
@@ -133,6 +142,22 @@
             FR.addEventListener("load", function(evt) {
                 // console.log()
                 $("#fileUploadBase64").val(evt.target.result);
+            });
+
+            FR.readAsDataURL(ev.files[0]);
+        })
+        document.getElementById("fileUpload1").addEventListener("change", e => {
+
+            $("#fileUploadBase641").val('');
+            e.preventDefault();
+            let ev = e.target;
+            if (!ev.files || !ev.files[0]) return;
+
+            const FR = new FileReader();
+
+            FR.addEventListener("load", function(evt) {
+                // console.log()
+                $("#fileUploadBase641").val(evt.target.result);
             });
 
             FR.readAsDataURL(ev.files[0]);

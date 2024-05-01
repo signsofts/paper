@@ -64,20 +64,20 @@
                     <div class="item <?php echo "PROTYPE_" . $row->id_typepro ?> col-md-4 col-lg-3 my-4" style="position: absolute; left: 0px; top: 0px;">
                         <div class="card position-relative">
                             <!-- single-product.php?id_products=<?php echo $row->id_products ?> -->
-                            <as href="javascript:;"><img src="../img/pro/<?php echo $row->image_pro ?>" class="img-fluid rounded-4" alt="image"></as>
+                            <a href="single-product.php?id_products=<?php echo $row->id_products ?>"><img src="../img/pro/<?php echo $row->image_pro ?>" class="img-fluid rounded-4" alt="image"></a>
                             <div class="card-body p-0">
                                 <div class=" d-flex justify-content-between ">
                                     <h5 class="secondary-font text-dark">
                                         <?php echo $row->name_products ?>
                                     </h5>
                                     <h5 class="secondary-font text-primary">
-                                        <?php echo $row->num_stock ?> ชิ้น
+                                        <?php echo $row->num_stock ?> ลัง
                                     </h5>
                                 </div>
                                 <div class="card-text">
-                                    <h3 class="secondary-font text-primary"><?php echo $row->price_unit ?> บาท/ชิ้น</h3>
+                                    <h3 class="secondary-font text-primary"><?php echo $row->price_unit ?> บาท/ลัง</h3>
                                     <div class=" d-flex justify-content-between ">
-                                        จำนวนชิ้น
+                                        จำนวนลัง
                                         <input id="input-<?php echo $row->id_products ?>" type="number" class="w-25" value="1" min="1">
                                     </div>
                                     <div class="d-flex flex-wrap mt-3">

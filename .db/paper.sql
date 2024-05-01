@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2024 at 10:37 AM
+-- Generation Time: May 01, 2024 at 05:38 AM
 -- Server version: 11.4.0-MariaDB
 -- PHP Version: 7.4.4
 
@@ -1064,23 +1064,26 @@ INSERT INTO `paper_user` (`US_ID`, `US_FNAME`, `US_LNAME`, `US_EMAIL`, `US_PASSW
 
 CREATE TABLE `products` (
   `id_products` int(11) NOT NULL COMMENT 'รหัสสินค้า',
-  `name_products` varchar(50) NOT NULL COMMENT 'ชื่อสินค้า',
-  `id_typepro` int(11) NOT NULL COMMENT 'ประเภท',
-  `num_stock` int(11) NOT NULL COMMENT 'จำนวนคงเหลือ ',
-  `price_unit` decimal(10,2) NOT NULL COMMENT 'ราคาต่อหน่วย ',
-  `status_products` int(11) NOT NULL DEFAULT 1 COMMENT 'สถานะสินค้า\r\n0 = ลบ 1 = ใช้งาน',
-  `image_pro` varchar(200) NOT NULL COMMENT 'รูปสินค้า'
+  `name_products` varchar(50) DEFAULT NULL COMMENT 'ชื่อสินค้า',
+  `id_typepro` int(11) DEFAULT NULL COMMENT 'ประเภท',
+  `num_stock` int(11) DEFAULT NULL COMMENT 'จำนวนคงเหลือ ',
+  `price_unit` decimal(10,2) DEFAULT NULL COMMENT 'ราคาต่อหน่วย ',
+  `status_products` int(11) DEFAULT 1 COMMENT 'สถานะสินค้า\r\n0 = ลบ 1 = ใช้งาน',
+  `image_pro` varchar(200) DEFAULT NULL COMMENT 'รูปสินค้า',
+  `pro_de` text DEFAULT NULL,
+  `pro_max` int(11) DEFAULT 0,
+  `price_mini` decimal(10,2) DEFAULT NULL COMMENT 'ราคาต่อชิ้น ใช้แสดง'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id_products`, `name_products`, `id_typepro`, `num_stock`, `price_unit`, `status_products`, `image_pro`) VALUES
-(1, 'ถุงกระดาษน้ำตาลหูเกลียว ใส่กล่องเค้ก 1 ปอนด์', 2, 500, 120.00, 1, '1713077254.png'),
-(2, 'กล่องสแน็ค ผืนผ้า น้ำตาลคราฟท์', 1, 1200, 109.00, 1, '1713077305.png'),
-(3, 'ถุงกระดาษน้ำตาลหูเชือก ใส่กล่องเค้ก 3 ปอนด์', 2, 250, 210.00, 1, '1713077375.png'),
-(4, 'ที่หิ้วแก้ว 2 หลุม สีน้ำตาลคราฟท์', 3, 600, 155.00, 1, '1713077426.png');
+INSERT INTO `products` (`id_products`, `name_products`, `id_typepro`, `num_stock`, `price_unit`, `status_products`, `image_pro`, `pro_de`, `pro_max`, `price_mini`) VALUES
+(1, 'ถุงกระดาษน้ำตาลหูเกลียว ใส่กล่องเค้ก 1 ปอนด์', 2, 499, 120.00, 1, '1713077254.png', 'หกดหกดหกด', NULL, NULL),
+(2, 'กล่องสแน็ค ผืนผ้า น้ำตาลคราฟท์', 1, 1190, 109.00, 1, '1713077305.png', '<p> 1</p><p>2 </p><p>3</p><ul><li>4</li></ul>', 20000, 0.44),
+(3, 'ถุงกระดาษน้ำตาลหูเชือก ใส่กล่องเค้ก 3 ปอนด์', 2, 250, 210.00, 1, '1713077375.png', NULL, NULL, NULL),
+(4, 'ที่หิ้วแก้ว 2 หลุม สีน้ำตาลคราฟท์', 3, 600, 155.00, 1, '1713077426.png', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8665,13 +8668,25 @@ INSERT INTO `subdistrict` (`code`, `zip_code`, `name_th`, `name_en`, `district_c
 
 CREATE TABLE `transale` (
   `id_transale` int(11) NOT NULL COMMENT 'รหัสรายการขาย',
-  `date_transale` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'วันที่ทำรายการขาย',
-  `US_ID` int(11) NOT NULL COMMENT 'รหัส',
-  `status_transale` int(11) NOT NULL DEFAULT 1 COMMENT 'สถานะ 1 = รอยืนยัน , 2 = ยืนยันการชำระ ,  3 = กำลังจัดส่ง\r\n,  4 = สำเร็จ 5 ยกเลิก',
+  `date_transale` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'วันที่ทำรายการขาย',
+  `US_ID` int(11) DEFAULT NULL COMMENT 'รหัส',
+  `status_transale` int(11) DEFAULT 1 COMMENT 'สถานะ 1 = รอยืนยัน , 2 = ยืนยันการชำระ ,  3 = กำลังจัดส่ง\r\n,  4 = สำเร็จ 5 ยกเลิก',
   `tra_slip` text DEFAULT NULL COMMENT 'หลักฐานการโอน',
   `tra_type_post` enum('1','0') DEFAULT NULL COMMENT 'การจัดส่ง 1 โอน 0 ปลายทาง\r\n',
-  `tra_number_tag` varchar(100) DEFAULT NULL COMMENT 'เลขติดตาม'
+  `tra_number_tag` varchar(100) DEFAULT NULL COMMENT 'เลขติดตาม',
+  `tra_modal_type` varchar(255) DEFAULT NULL COMMENT 'แบบผลิต'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+--
+-- Dumping data for table `transale`
+--
+
+INSERT INTO `transale` (`id_transale`, `date_transale`, `US_ID`, `status_transale`, `tra_slip`, `tra_type_post`, `tra_number_tag`, `tra_modal_type`) VALUES
+(1, '2024-05-01 02:37:54', 8, 1, '', '0', NULL, '6631ab020152c.jpg'),
+(2, '2024-05-01 02:57:13', 8, 1, '', '0', NULL, '6631af89d1067.jpg'),
+(3, '2024-05-01 02:58:48', 8, 1, '', '0', NULL, 'MO_1714532328.png'),
+(4, '2024-05-01 03:00:02', 8, 1, '', '0', NULL, 'MO_1714532402.png'),
+(5, '2024-05-01 03:02:46', 8, 3, '1714532425.png', '1', '', 'MO_1714532425.png');
 
 -- --------------------------------------------------------
 
@@ -8699,16 +8714,6 @@ CREATE TABLE `typepro` (
   `detail_typepro` text NOT NULL COMMENT 'รายละเอียดประเภทกาแฟ',
   `TY_STATUS` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
---
--- Dumping data for table `typepro`
---
-
-INSERT INTO `typepro` (`id_typepro`, `name_typepro`, `detail_typepro`, `TY_STATUS`) VALUES
-(1, 'กล่อง', '', NULL),
-(2, 'ถุง', '', NULL),
-(3, 'เเก้ว', '', NULL),
-(4, 'กระดาษ', '', NULL);
 
 --
 -- Indexes for dumped tables
@@ -8823,7 +8828,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `transale`
 --
 ALTER TABLE `transale`
-  MODIFY `id_transale` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสรายการขาย';
+  MODIFY `id_transale` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสรายการขาย', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transalede`
@@ -8835,7 +8840,7 @@ ALTER TABLE `transalede`
 -- AUTO_INCREMENT for table `typepro`
 --
 ALTER TABLE `typepro`
-  MODIFY `id_typepro` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสประเภทกาแฟ', AUTO_INCREMENT=5;
+  MODIFY `id_typepro` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสประเภทกาแฟ';
 
 --
 -- Constraints for dumped tables
