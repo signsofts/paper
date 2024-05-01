@@ -37,8 +37,6 @@ if (!empty($image_pro)) {
     $image_pro = $check_products->image_pro;
 }
 
-
-
 Database::query("UPDATE `products` SET `name_products` = '$name_products', 
                                             `id_typepro` = '$id_typepro', 
                                             `num_stock` = '$num_stock', 
