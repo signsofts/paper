@@ -89,9 +89,6 @@ function addCartProduct(id_products, name_products, price_unit, item, image_pro)
         image_pro: image_pro
     }
 
-    // console.log(product)
-
-
 
     if (localStorage.getItem('product') == null) {
 
@@ -107,30 +104,34 @@ function addCartProduct(id_products, name_products, price_unit, item, image_pro)
             showConfirmButton: false,
             timer: 1000
         });
+
+        console.log("1");
         return;
     }
 
     let rco = JSON.parse(localStorage.getItem('product'));
-
     let checkItem = false;
     rco.forEach((i, k) => {
         if (i.id_products == id_products) {
             checkItem = true;
+            console.log("2");
+
         }
     });
-
+    temps = rco;
     if (checkItem) {
         rco.forEach((i, k) => {
             if (i.id_products == id_products) {
                 i.item = parseInt(i.item) + parseInt(item);
+                temps[k].item  = i.item ; 
             }
-            temps.push(i);
+            // temps.push(i);
         });
-
-        // localStorage.setItem('product', JSON.stringify(temps))
     } else {
         temps.push(product);
     }
+    // console.log(checkItem)
+    console.log(JSON.stringify(temps))
 
     localStorage.setItem('product', JSON.stringify(temps))
 

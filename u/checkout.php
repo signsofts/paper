@@ -81,8 +81,14 @@
                                         </span>
                                     </label>
                                     <br>
-                                    <br>
-                                    <br>
+                                    <b><p class="p-0 m-0">บัญชี</p></b>
+                                    <b><p class="p-0 m-0">เลขบัญชี 1093433374</p></b>
+                                    <b><p class="p-0 m-0">ธนาคาร กสิกรไทย</p></b>
+                                    <b><p class="p-0 m-0">ชื่อบัญชี สุพรรณี สถิตย์พงษ์</p></b>
+                                    
+                                    
+                                    
+                                    
                                     <label class="list-group-item d-flex gap-2 border-0">
                                         <input class="form-check-input flex-shrink-0" type="radio" required name="type_play" id="type_play2" value="1" onclick="type_playClick(this)">
                                         <span>
