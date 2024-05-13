@@ -14,10 +14,8 @@ document.getElementById("checout").addEventListener("submit", (e) => {
     }).then(e => e.json()).then(resp => {
         if (resp.error == false) {
             alert("สั่งซื้อสินค้าสำเร็จ");
-            // localStorage.setItem('product', JSON.stringify([]))
             localStorage.clear('product');
-
-            location.assign("./index.php");
+            location.assign("./print.php?ID=" + resp.LastID);
         } else {
             alert(resp.error);
         }

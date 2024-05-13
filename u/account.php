@@ -325,6 +325,10 @@
                                         <?php if ($row->status_transale == '3') : ?>
                                             <button type="button" onclick="cSuccessTransale('<?php echo $row->id_transale; ?>')" class="btn btn-outline-success">ยืนยันรับสินค้า</button>
                                         <?php endif; ?>
+
+                                        <a target="_blank" href="./print.php?ID=<?php echo $row->id_transale; ?>&t=a" class="btn  btn-dark">ใบเสร็จ</a>
+
+
                                     </div>
                                 </div>
                             </div>

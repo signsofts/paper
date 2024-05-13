@@ -137,6 +137,8 @@
                                         <button type="button" style="padding: 6px;" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#transale-<?php echo  $row->id_transale ?>">
                                             รายละเอียด
                                         </button>
+                                        <a target="_blank" href="./print.php?ID=<?php echo $row->id_transale; ?>&t=a" class="">ใบเสร็จ</a>
+
                                     </td>
                                     <!-- Modal -->
 
@@ -302,9 +304,12 @@
                                         ?></td>
                                     <!-- <td><?php echo  $row->tra_number_tag ?? "-" ?></td> -->
                                     <td>
+
                                         <button type="button" style="padding: 6px;" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#transale-<?php echo  $row->id_transale ?>">
                                             รายละเอียด
                                         </button>
+                                        <a target="_blank" href="./print.php?ID=<?php echo $row->id_transale; ?>&t=a" class="">ใบเสร็จ</a>
+
                                     </td>
                                     <!-- Modal -->
 
@@ -343,6 +348,9 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
+
+
+
                                             <div class="col-12">
 
                                                 <table class="table table-bordered w-100">
@@ -375,11 +383,11 @@
                                                 <h4>แบบที่ลูกค้าจะพิมพ์</h4>
                                                 <img src="./../img/modal/<?php echo $row->tra_modal_type ?>" width="50%" height="200px" alt="" srcset="">
                                             </div>
+
                                         </div>
 
                                     </div>
                                     <div class="modal-footer">
-                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button> -->
                                         <?php if ($row->status_transale == '2') : ?>
                                             <div class="input-group mb-3">
                                                 <input id="in-tra_number_tag-<?php echo  $row->id_transale ?>" name="tra_number_tag" type="text" class="form-control" placeholder="ระบุเลขติดตามพัสดุ" aria-label="ระบุเลขติดตามพัสดุ" aria-describedby="button-addon2">
@@ -474,6 +482,8 @@
                                         <button type="button" style="padding: 6px;" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#transale-<?php echo  $row->id_transale ?>">
                                             รายละเอียด
                                         </button>
+                                        <a target="_blank" href="./print.php?ID=<?php echo $row->id_transale; ?>&t=a" class="">ใบเสร็จ</a>
+
                                     </td>
                                     <!-- Modal -->
 
@@ -642,6 +652,8 @@
                                         <button type="button" style="padding: 6px;" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#transale-<?php echo  $row->id_transale ?>">
                                             รายละเอียด
                                         </button>
+                                        <a target="_blank" href="./print.php?ID=<?php echo $row->id_transale; ?>&t=a" class="">ใบเสร็จ</a>
+
                                     </td>
                                     <!-- Modal -->
 
@@ -814,6 +826,8 @@
                                         <button type="button" style="padding: 6px;" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#transale-<?php echo  $row->id_transale ?>">
                                             รายละเอียด
                                         </button>
+                                        <a target="_blank" href="./print.php?ID=<?php echo $row->id_transale; ?>&t=a" class="">ใบเสร็จ</a>
+
                                     </td>
                                     <!-- Modal -->
 

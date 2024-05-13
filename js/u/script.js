@@ -114,7 +114,7 @@ function addCartProduct(id_products, name_products, price_unit, item, image_pro)
     rco.forEach((i, k) => {
         if (i.id_products == id_products) {
             checkItem = true;
-            console.log("2");
+            // console.log("2");
 
         }
     });
@@ -131,7 +131,7 @@ function addCartProduct(id_products, name_products, price_unit, item, image_pro)
         temps.push(product);
     }
     // console.log(checkItem)
-    console.log(JSON.stringify(temps))
+    // console.log(JSON.stringify(temps))
 
     localStorage.setItem('product', JSON.stringify(temps))
 

@@ -130,4 +130,4 @@ endforeach;
 
 
 
-echo json_encode(["error" => false]);
+echo json_encode(["error" => false, "LastID" => $LastID]);
